@@ -15,6 +15,7 @@ public class JogoDaVelha {
 		boolean jogoAtivo;
 		char[][] tabuleiro = new char[3][3];
 		do{
+			System.out.println("\nJogo Da Velha");
 			jogoAtivo = true;
 			iniciarTabuleiro(tabuleiro);
 			jogador = 'x';
@@ -59,13 +60,19 @@ public class JogoDaVelha {
 	static void exibirTabuleiro(char[][] tabuleiro){
 		System.out.println();
 		for (int i = 0; i < 3; i++){
-			System.out.print("| ");
+			System.out.print(" ");
 			for (int j = 0; j < 3; j++){
 				System.out.print(tabuleiro[i][j]);
-				System.out.print(" | ");
+				if (j < 2){
+					System.out.print(" | ");
+				}
 			}
-			System.out.println("\n-------------");
+			System.out.println();
+			if (i < 2){
+				System.out.println("-----------");
+			}
 		}
+		System.out.println();
 	}
 	static boolean realizarJogada(char[][] tabuleiro, char jogador, int linha, int coluna){
 		if (tabuleiro[linha - 1][coluna - 1] == ' '){
